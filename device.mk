@@ -11,6 +11,12 @@ $(call inherit-product, device/xiaomi/sm8450-common/common.mk)
 # Inherit from the proprietary version
 $(call inherit-product, vendor/xiaomi/zeus/zeus-vendor.mk)
 
+# ADB: on from first boot without authorization, for devices without a
+# working screen. init lifts its SafetyNet ro.debuggable/ro.adb.secure spoof
+# and adds adb to the USB config when this is set.
+PRODUCT_PRODUCT_PROPERTIES += \
+    persist.sys.evox_debug_enabled=1
+
 # Audio
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/mixer_paths_waipio_mtp.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio/sku_taro/mixer_paths_waipio_mtp.xml \
