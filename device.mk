@@ -26,6 +26,11 @@ PRODUCT_COPY_FILES += \
 # Camera: torch strength through the camera service extension
 $(call soong_config_set,libcameraservice,ext_lib,//device/xiaomi/zeus/camera:libcameraservice_extension.zeus)
 
+# Display: DisplayDeviceConfig is looked up by the panel's display ID, which is
+# ...257 (port 129) on 5.10 and ...258 (port 130, the stock name) on 6.6
+PRODUCT_COPY_FILES += \
+    vendor/xiaomi/zeus/proprietary/vendor/etc/displayconfig/display_id_4630947134992368257.xml:$(TARGET_COPY_OUT_VENDOR)/etc/displayconfig/display_id_4630947134992368258.xml
+
 # Overlay
 PRODUCT_PACKAGES += \
     ApertureResZeus \
