@@ -1,4 +1,5 @@
 # Fingerprint
+persist.vendor.fingerprint.module=goodix_fod6
 persist.vendor.fingerprint.type=udfps_optical
 persist.vendor.fingerprint.sensor_location=720|2480|134
 persist.vendor.sys.fp.fod.location.X_Y=586,2346
